@@ -3,164 +3,290 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RupaRuang.Interior — Studio Desain Interior Premium</title>
-  <meta name="description" content="Studio desain interior premium. Konsultasi desain rumah, dapur, apartemen secara online bersama RupaRuang.Interior." />
-
+  <title>RupaRuang.Interior</title>
   <style>
     :root{
       --burgundy:#780116;
       --burgundy-dark:#4A000C;
-      --gold:#D7BA89;
-      --cream:#FFF5E6;
-      --dark:#14070A;
+      --burlywood:#D7BA89;
+      --oldlace:#FFF5E6;
+      --dark-bg:#14070A;
     }
-    *{box-sizing:border-box}
+
+    /* ===== VISUAL POLISH & INTERACTION ===== */
+    .card{transition:transform .35s ease, box-shadow .35s ease}
+    .card:hover{transform:translateY(-6px);box-shadow:0 32px 70px rgba(0,0,0,.55)}
+    .card .c strong{letter-spacing:.3px}
+
+    /* hover helpers */
+    .room-card img{transition:transform .4s ease, box-shadow .4s ease}
+    .room-card:hover img{transform:scale(1.06);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+    .room-card span{transition:all .3s ease}
+    .room-card:hover span{background:linear-gradient(135deg,var(--burgundy),var(--burgundy-dark));color:#fff;box-shadow:0 10px 26px rgba(120,1,22,.45)}
+
     body{
       margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,Inter,Arial,sans-serif;
-      background:linear-gradient(180deg,var(--dark) 0%,#220B10 100%);
+      font-family:Inter,Arial,sans-serif;
+      background:linear-gradient(180deg,var(--dark-bg) 0%,#220B10 100%);
       color:#E8DED2;
     }
-    img{max-width:100%;display:block}
-    a{text-decoration:none}
-
     header{
-      position:sticky;top:0;z-index:50;
+      position:sticky;top:0;
       background:rgba(20,7,10,.92);
       backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(215,186,137,.25)
+      border-bottom:1px solid rgba(215,186,137,.25);
+      z-index:10
     }
-    .nav{
-      max-width:1200px;margin:auto;padding:18px 20px;
-      display:flex;align-items:center;justify-content:space-between
+    .wrap{max-width:1200px;margin:auto;padding:20px}
+    nav a{
+      margin:0 14px;
+      text-decoration:none;
+      color:var(--oldlace);
+      font-size:14px;
+      font-weight:500
     }
-    .nav a{color:var(--cream);margin:0 12px;font-size:14px;font-weight:500}
-    .nav a:hover{color:var(--gold)}
-
+    nav a:hover{color:var(--burlywood)}
     .btn{
       background:linear-gradient(135deg,var(--burgundy),var(--burgundy-dark));
-      color:#fff;padding:14px 26px;border-radius:14px;
-      font-weight:600;display:inline-block
+      color:#fff;
+      padding:14px 26px;
+      border-radius:14px;
+      text-decoration:none;
+      display:inline-block;
+      font-weight:600;
+      box-shadow:0 12px 30px rgba(120,1,22,.5)
     }
-
     .hero{
-      background:url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat
+      background:url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0') center/cover no-repeat
     }
-    .hero-overlay{
-      background:linear-gradient(rgba(20,7,10,.75),rgba(20,7,10,.95))
+    .hero .overlay{
+      background:linear-gradient(rgba(20,7,10,.75),rgba(20,7,10,.92))
     }
-    .hero-content{
-      max-width:1200px;margin:auto;padding:140px 20px
-    }
-    h1{
-      font-size:46px;max-width:760px;line-height:1.2;color:#F2E6D8
-    }
-
-    section{padding:110px 20px}
-    .wrap{max-width:1200px;margin:auto}
-    h2{font-size:34px;color:var(--gold);margin-bottom:10px}
-
-    .room-grid{
-      display:flex;gap:22px;flex-wrap:wrap;margin-top:40px
-    }
-    .room-card{
-      width:180px;cursor:pointer
-    }
-    .room-card img{
-      border-radius:16px;transition:transform .4s ease,box-shadow .4s ease
-    }
-    .room-card:hover img{
-      transform:scale(1.06);box-shadow:0 18px 40px rgba(0,0,0,.4)
-    }
-    .room-card span{
-      display:block;text-align:center;margin-top:10px;
-      background:#F2EDE7;color:#4A000C;padding:10px;border-radius:12px;
-      font-weight:600
-    }
-
-    .grid{
-      display:grid;gap:28px
-    }
-    .grid-3{
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr))
-    }
+    .hero-content{padding:160px 20px}
+    h1{font-size:48px;max-width:760px;line-height:1.2;color:#F2E6D8}
+    h2{font-size:34px;color:#D7BA89}
+    section{padding:120px 20px;position:relative;color:#3A2A1A}
+    .grid{display:grid;gap:28px}
+    .grid-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
     .card{
       background:rgba(255,245,230,.12);
-      border-radius:22px;overflow:hidden;
-      border:1px solid rgba(215,186,137,.28);
-      box-shadow:0 24px 60px rgba(0,0,0,.6)
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:0 24px 60px rgba(0,0,0,.65);
+      border:1px solid rgba(215,186,137,.28)
     }
-    .card img{height:240px;object-fit:cover;width:100%}
+    .card img{width:100%;height:240px;object-fit:cover}
     .card .c{padding:26px}
 
+    .faq details{
+      background:rgba(255,245,230,.14);
+      border-radius:16px;
+      padding:20px;
+      margin-bottom:14px;
+      border:1px solid rgba(215,186,137,.28)
+    }
     footer{
       background:var(--burgundy-dark);
-      color:var(--gold);text-align:center;padding:40px;font-size:14px
+      color:var(--burlywood);
+      text-align:center;
+      padding:40px;
+      font-size:14px
     }
 
+    /* ===== MOBILE OPTIMIZATION ===== */
     @media(max-width:768px){
       h1{font-size:34px}
-      section{padding:80px 20px}
+      h2{font-size:26px}
+      section{padding:70px 16px}
+      .hero-content{padding:120px 16px}
+      nav{display:none}
+      header .btn{padding:10px 18px;font-size:14px}
+      .card img{height:200px}
+      .grid{gap:20px}
     }
+
+    @media(max-width:480px){
+      h1{font-size:30px}
+      p{font-size:15px;line-height:1.6}
+      .btn{width:100%;text-align:center}
+      .room-card{width:100%!important}
+    }
+  
+    /* ===== NEXT LEVEL UX ===== */
+    /* Sticky WhatsApp CTA (Mobile) */
+    .wa-sticky{display:none}
+    @media(max-width:768px){
+      .wa-sticky{
+        display:flex;
+        position:fixed;
+        bottom:18px;left:16px;right:16px;
+        background:linear-gradient(135deg,var(--burgundy),var(--burgundy-dark));
+        color:#fff;
+        padding:14px 18px;
+        border-radius:18px;
+        font-weight:600;
+        justify-content:center;
+        align-items:center;
+        box-shadow:0 14px 40px rgba(120,1,22,.6);
+        z-index:999
+      }
+    }
+
+    /* Scroll reveal */
+    .reveal{opacity:0;transform:translateY(40px);transition:all .8s ease}
+    .reveal.active{opacity:1;transform:none}
   </style>
 </head>
 <body>
+<a href="https://wa.me/6285124795058" class="wa-sticky">💬 Konsultasi via WhatsApp</a>
 
 <header>
-  <div class="nav">
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center">
     <strong>RupaRuang.Interior</strong>
     <nav>
       <a href="#home">Home</a>
       <a href="#inspirasi">Inspirasi</a>
-      <a href="#cara">Cara Kerja</a>
+      <a href="#cara-kerja">Cara Kerja</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#faq">FAQ</a>
     </nav>
     <a class="btn" href="https://wa.me/6285124795058">WhatsApp</a>
   </div>
 </header>
 
 <div id="home" class="hero">
-  <div class="hero-overlay">
-    <div class="hero-content">
-      <h1>Desain Interior Premium untuk Hunian Modern</h1>
-      <p>Studio desain interior dengan pendekatan estetika, fungsi, dan rasa ruang. Konsultasi langsung via WhatsApp.</p>
-      <a class="btn" href="https://wa.me/6285124795058">Konsultasi Sekarang</a>
+  <div class="overlay">
+    <div class="wrap hero-content">
+      <h1>Interior Design untuk Rumah Modern</h1>
+      <p>Inspirasi desain interior ala Dekoruma untuk rumah, dapur, dan apartemen. Tanpa jualan, konsultasi langsung via WhatsApp.</p>
+      <a class="btn" href="https://wa.me/6285124795058">Konsultasi via WhatsApp</a>
     </div>
   </div>
 </div>
 
-<section style="background:#F6F1EA">
+<section class="reveal" style="background:#F6F1EA">
   <div class="wrap">
-    <h2 style="color:#780116">Inspirasi Desain Interior</h2>
-    <p style="color:#6B1E2E">Referensi desain berdasarkan jenis ruang</p>
-    <div class="room-grid">
-      <div class="room-card"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80"><span>Rumah</span></div>
-      <div class="room-card"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=600&q=80"><span>Ruang Tamu</span></div>
-      <div class="room-card"><img src="https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&w=600&q=80"><span>Dapur</span></div>
-      <div class="room-card"><img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=600&q=80"><span>Apartemen</span></div>
-      <div class="room-card"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80"><span>Kamar Tidur</span></div>
+    <h2 style="color:#780116;font-size:34px;font-weight:600">Inspirasi Desain Interior</h2>
+    <p style="color:#6B1E2E;max-width:640px;font-weight:500">Lihat referensi desain berdasarkan jenis ruang</p>
+    <div style="margin-top:20px;display:flex;gap:20px;flex-wrap:wrap">
+      <div class="room-card" style="width:180px;cursor:pointer">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" style="width:100%;border-radius:16px;margin-bottom:10px" />
+        <span class="btn" style="background:#F2EDE7;color:#4A000C;box-shadow:none;width:100%;text-align:center;display:block">Rumah</span>
+      </div>
+      <div class="room-card" style="width:180px;cursor:pointer">
+        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=600&q=80" style="width:100%;border-radius:16px;margin-bottom:10px" />
+        <span class="btn" style="background:#F2EDE7;color:#4A000C;box-shadow:none;width:100%;text-align:center;display:block">Ruang Tamu</span>
+      </div>
+      <div class="room-card" style="width:180px;cursor:pointer">
+        <img src="https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&w=600&q=80" style="width:100%;border-radius:16px;margin-bottom:10px" />
+        <span class="btn" style="background:#F2EDE7;color:#4A000C;box-shadow:none;width:100%;text-align:center;display:block">Dapur</span>
+      </div>
+      <div class="room-card" style="width:180px;cursor:pointer">
+        <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=600&q=80" style="width:100%;border-radius:16px;margin-bottom:10px" />
+        <span class="btn" style="background:#F2EDE7;color:#4A000C;box-shadow:none;width:100%;text-align:center;display:block">Apartemen</span>
+      </div>
+      <div class="room-card" style="width:180px;cursor:pointer">
+        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80" style="width:100%;border-radius:16px;margin-bottom:10px" />
+        <span class="btn" style="background:#F2EDE7;color:#4A000C;box-shadow:none;width:100%;text-align:center;display:block">Kamar Tidur</span>
+      </div>
+      <div class="room-card" style="width:180px;cursor:pointer">
+        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" style="width:100%;border-radius:16px;margin-bottom:10px" />
+        <span class="btn" style="background:#F2EDE7;color:#4A000C;box-shadow:none;width:100%;text-align:center;display:block">Kamar Mandi</span>
+      </div>
     </div>
-  </div>
+    </div>
+    </div>
+</div>
 </section>
 
-<section id="inspirasi" style="background:linear-gradient(180deg,#FFFFFF 0%,#F6F1EA 100%)">
+<section class="reveal" id="inspirasi" style="background:linear-gradient(180deg,#FFFFFF 0%,#F6F1EA 100%)">
   <div class="wrap">
     <h2>Inspirasi Interior Premium</h2>
+    <p>Contoh pilihan ruang dengan sentuhan desain elegan & mewah.</p>
+
     <div class="grid grid-3" style="margin-top:50px">
-      <div class="card"><img src="https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=1400&q=85"><div class="c"><strong>Ruang Tamu Elegan</strong></div></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=85"><div class="c"><strong>Ruang Tamu Elegan</strong></div></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1400&q=85"><div class="c"><strong>Interior Rumah</strong></div></div>
+
+      <!-- Ruang Tamu Elegan -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1400&q=85" alt="Ruang Tamu Elegan" />
+        <div class="c"><strong>Ruang Tamu Elegan</strong></div>
+      </div>
+
+      <!-- Interior Rumah -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=85" alt="Interior Rumah" />
+        <div class="c"><strong>Interior Rumah</strong></div>
+      </div>
+
+      <!-- Dapur Modern -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?auto=format&fit=crop&w=1200&q=80" alt="Dapur Modern" />
+        <div class="c"><strong>Dapur Modern</strong></div>
+      </div>
+
+      <!-- Apartemen Premium -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=80" alt="Apartemen Premium" />
+        <div class="c"><strong>Apartemen Premium</strong></div>
+      </div>
+
+      <!-- Kamar Tidur Utama -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1200&q=80" alt="Kamar Tidur Utama" />
+        <div class="c"><strong>Kamar Tidur Utama</strong></div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<section id="cara" style="background:#F2EDE7">
+<section class="reveal" id="cara-kerja" style="background:linear-gradient(180deg,#F2EDE7 0%,#E9DED2 100%)">
   <div class="wrap">
-    <h2 style="color:#4A000C">Cara Kerja RupaRuang</h2>
+    <h2>Cara Kerja RupaRuang</h2>
     <div class="grid grid-3" style="margin-top:40px">
       <div class="card"><div class="c"><strong>1. Konsultasi</strong><p>Diskusi kebutuhan via WhatsApp</p></div></div>
-      <div class="card"><div class="c"><strong>2. Konsep Desain</strong><p>Konsep visual & tata ruang</p></div></div>
-      <div class="card"><div class="c"><strong>3. Pendampingan</strong><p>Sampai siap diwujudkan</p></div></div>
+      <div class="card"><div class="c"><strong>2. Konsep</strong><p>Penyusunan desain sesuai ruang</p></div></div>
+      <div class="card"><div class="c"><strong>3. Realisasi</strong><p>Pendampingan hingga siap diwujudkan</p></div></div>
     </div>
+  </div>
+</section>
+
+<section class="reveal" id="tentang" style="background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover no-repeat">
+  <div style="background:rgba(255,255,255,.9)">
+  <div class="wrap">
+    <h2>Tentang RupaRuang.Interior</h2>
+    <p>RupaRuang adalah studio desain interior yang berfokus pada penciptaan ruang tinggal yang fungsional, estetis, dan relevan dengan gaya hidup modern. Kami percaya desain yang baik dimulai dari pemahaman kebutuhan klien.</p>
+  </div>
+</div>
+</section>
+
+<section class="reveal" id="faq" style="background:#F2EDE7">
+  <div class="wrap faq">
+    <h2>Pertanyaan yang Sering Diajukan</h2>
+    <details><summary><strong>Apakah bisa konsultasi tanpa bertemu?</strong></summary><p>Ya, seluruh proses awal dapat dilakukan via WhatsApp.</p></details>
+    <details><summary><strong>Apakah melayani luar kota?</strong></summary><p>Kami melayani klien di berbagai kota dengan sistem online.</p></details>
+    <details><summary><strong>Apakah RupaRuang menjual produk?</strong></summary><p>Tidak. Website ini murni inspirasi & konsultasi desain.</p></details>
+  </div>
+</section>
+
+<section class="reveal" id="testimoni" style="background:url('https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat">
+  <div style="background:rgba(255,255,255,.88)">
+  <div class="wrap">
+    <h2>Apa Kata Klien Kami</h2>
+    <p>Beberapa pengalaman klien yang telah berkonsultasi dengan RupaRuang.</p>
+    <div class="grid grid-3" style="margin-top:40px">
+      <div class="card"><div class="c"><p>“Desainnya rapi, komunikasinya jelas, dan sangat membantu memvisualisasikan rumah impian kami.”</p><strong>— Andi, Rumah Tinggal</strong></div></div>
+      <div class="card"><div class="c"><p>“Konsultasi via WhatsApp ternyata sangat efektif. Konsepnya sesuai kebutuhan apartemen saya.”</p><strong>— Maya, Apartemen</strong></div></div>
+      <div class="card"><div class="c"><p>“Tidak jualan produk, jadi fokus ke desain. Ini yang saya cari.”</p><strong>— Rina, Dapur</strong></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal" style="background:linear-gradient(180deg,#F4EFE8 0%,#EADBC8 100%)">
+  <div class="wrap" style="text-align:center">
+    <h2 style="color:#4A000C">Konsultasikan Desain Interior Anda</h2>
+    <p style="color:#4A000C">Mulai diskusi desain rumah, dapur, atau apartemen sekarang.</p>
+    <a class="btn" href="https://wa.me/6285124795058">Chat WhatsApp</a>
   </div>
 </section>
 
@@ -168,5 +294,14 @@
   © 2025 RupaRuang.Interior — Interior Design Studio
 </footer>
 
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){entry.target.classList.add('active');}
+    });
+  },{threshold:0.15});
+  reveals.forEach(r => observer.observe(r));
+</script>
 </body>
 </html>

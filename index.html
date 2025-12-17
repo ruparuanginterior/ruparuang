@@ -17,6 +17,22 @@
       --oldlace:#FFF5E6;
       --dark-bg:#14070A;
     }
+/* ===== PORTFOLIO FILTER ===== */
+.filter-btn{
+  border:none;
+  padding:10px 18px;
+  border-radius:14px;
+  background:#EADBC8;
+  color:#4A000C;
+  font-weight:600;
+  cursor:pointer;
+}
+.filter-btn.active{
+  background:linear-gradient(135deg,#780116,#4A000C);
+  color:#fff;
+}
+.portfolio-item{display:block}
+.portfolio-item.hide{display:none}
 
     /* ===== VISUAL POLISH & INTERACTION ===== */
     .card{transition:transform .35s ease, box-shadow .35s ease}
@@ -223,38 +239,36 @@
 
     <div class="grid grid-3" style="margin-top:50px">
 
-      <!-- Ruang Tamu Elegan -->
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1400&q=85" alt="Ruang Tamu Elegan" />
-        <div class="c"><strong>Ruang Tamu Elegan</strong></div>
-      </div>
+      <div style="margin:30px 0;display:flex;gap:12px;flex-wrap:wrap">
+  <button class="filter-btn active" data-filter="all">Semua</button>
+  <button class="filter-btn" data-filter="rumah">Rumah</button>
+  <button class="filter-btn" data-filter="apartemen">Apartemen</button>
+  <button class="filter-btn" data-filter="dapur">Dapur</button>
+</div>
 
-      <!-- Interior Rumah -->
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=85" alt="Interior Rumah" />
-        <div class="c"><strong>Interior Rumah</strong></div>
-      </div>
+<div class="grid grid-3 portfolio-grid">
 
-      <!-- Dapur Modern -->
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?auto=format&fit=crop&w=1200&q=80" alt="Dapur Modern" />
-        <div class="c"><strong>Dapur Modern</strong></div>
-      </div>
-
-      <!-- Apartemen Premium -->
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=80" alt="Apartemen Premium" />
-        <div class="c"><strong>Apartemen Premium</strong></div>
-      </div>
-
-      <!-- Kamar Tidur Utama -->
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1200&q=80" alt="Kamar Tidur Utama" />
-        <div class="c"><strong>Kamar Tidur Utama</strong></div>
-      </div>
-
-    </div>
+  <div class="card portfolio-item rumah">
+    <img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1400&q=85">
+    <div class="c"><strong>Ruang Tamu Elegan</strong></div>
   </div>
+
+  <div class="card portfolio-item rumah">
+    <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=85">
+    <div class="c"><strong>Interior Rumah</strong></div>
+  </div>
+
+  <div class="card portfolio-item dapur">
+    <img src="https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?auto=format&fit=crop&w=1200&q=80">
+    <div class="c"><strong>Dapur Modern</strong></div>
+  </div>
+
+  <div class="card portfolio-item apartemen">
+    <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=80">
+    <div class="c"><strong>Apartemen Premium</strong></div>
+  </div>
+
+</div>
 </section>
 
 <section class="reveal" id="cara-kerja" style="background:linear-gradient(180deg,#F2EDE7 0%,#E9DED2 100%)">
@@ -320,5 +334,19 @@
   },{threshold:0.15});
   reveals.forEach(r => observer.observe(r));
 </script>
+      
+    <script>
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.onclick=()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'))
+    btn.classList.add('active')
+    const f=btn.dataset.filter
+    document.querySelectorAll('.portfolio-item').forEach(item=>{
+      item.classList.toggle('hide', f!=='all' && !item.classList.contains(f))
+    })
+  }
+})
+</script>
+
 </body>
 </html>

@@ -3,94 +3,96 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portofolio | RupaRuang.Interior</title>
+  <title>Portfolio Interior | RupaRuang.Interior</title>
+  <meta name="description" content="Portfolio desain interior rumah, apartemen, dapur & ruang tamu oleh RupaRuang.Interior." />
+
   <style>
-    body{margin:0;font-family:Inter,Arial,sans-serif;background:#F6F1EA;color:#3A2A1A}
-    header{background:#4A000C;color:#fff;padding:20px}
-    header a{color:#fff;text-decoration:none;font-weight:600}
-    .wrap{max-width:1200px;margin:auto;padding:40px 20px}
-    h1{color:#780116;font-size:42px;margin-bottom:10px}
-    p.sub{max-width:640px;color:#6B1E2E}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px;margin-top:50px}
-    .card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.18)}
+    body{margin:0;font-family:Inter,Arial,sans-serif;background:#14070A;color:#2b2b2b}
+    header{background:#14070A;color:#fff;padding:20px 0;position:sticky;top:0;z-index:10}
+    .wrap{max-width:1200px;margin:auto;padding:20px}
+    nav a{color:#fff;text-decoration:none;margin:0 14px;font-size:14px}
+    h1{font-size:42px;color:#780116}
+    h2{color:#780116}
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;margin-top:50px}
+    .card{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.25);transition:.35s}
+    .card:hover{transform:translateY(-8px);box-shadow:0 32px 80px rgba(0,0,0,.35)}
     .card img{width:100%;height:240px;object-fit:cover}
-    .c{padding:22px}
-    .c strong{color:#4A000C;font-size:18px}
-    .tag{display:inline-block;margin-top:8px;font-size:12px;background:#F2EDE7;color:#4A000C;padding:6px 10px;border-radius:20px}
-    footer{background:#4A000C;color:#EADBC8;text-align:center;padding:30px;margin-top:80px}
-    .btn{display:inline-block;margin-top:14px;background:#780116;color:#fff;padding:12px 22px;border-radius:14px;text-decoration:none;font-weight:600}
+    .card .c{padding:22px}
+    .card .c strong{font-size:18px}
+
+    .btn{display:inline-block;margin-top:12px;background:linear-gradient(135deg,#780116,#4A000C);color:#fff;padding:10px 18px;border-radius:12px;text-decoration:none;font-weight:600}
+
+    footer{background:#4A000C;color:#D7BA89;text-align:center;padding:40px;margin-top:100px}
+
+    @media(max-width:768px){
+      h1{font-size:32px}
+      .card img{height:200px}
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="wrap">
-    <a href="index.html">← Kembali ke Home</a>
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center">
+    <strong style="color:#fff">RupaRuang.Interior</strong>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
   </div>
 </header>
 
-<section class="wrap">
-  <h1>Portofolio Proyek</h1>
-  <p class="sub">Beberapa contoh konsep dan hasil desain interior yang pernah kami tangani sebagai referensi gaya dan kualitas desain RupaRuang.</p>
+<section style="background:#F6F1EA">
+  <div class="wrap">
+    <h1>Portfolio Interior</h1>
+    <p>Kumpulan proyek dan inspirasi desain interior yang telah kami kerjakan & kurasi.</p>
 
-  <div class="grid">
+    <div class="grid">
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1200&q=80" />
-      <div class="c">
-        <strong>Ruang Tamu Modern Elegan</strong>
-        <p>Konsep warna netral dengan aksen kayu dan pencahayaan hangat.</p>
-        <span class="tag">Rumah Tinggal</span>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" />
+        <div class="c">
+          <strong>Rumah Tinggal Modern</strong>
+          <p>Desain rumah modern dengan sentuhan elegan & fungsional.</p>
+          <a class="btn" href="https://wa.me/6285124795058">Konsultasi Desain Serupa</a>
+        </div>
       </div>
-    </div>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80" />
-      <div class="c">
-        <strong>Interior Rumah Minimalis</strong>
-        <p>Desain clean, fungsional, dan mudah dikembangkan.</p>
-        <span class="tag">Full House</span>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1200&q=80" />
+        <div class="c">
+          <strong>Ruang Tamu Elegan</strong>
+          <p>Ruang tamu mewah dengan komposisi warna hangat & pencahayaan premium.</p>
+          <a class="btn" href="https://wa.me/6285124795058">Konsultasi Desain Serupa</a>
+        </div>
       </div>
-    </div>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?auto=format&fit=crop&w=1200&q=80" />
-      <div class="c">
-        <strong>Dapur Modern</strong>
-        <p>Tata letak efisien dengan kabinet custom dan pencahayaan optimal.</p>
-        <span class="tag">Dapur</span>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&w=1200&q=80" />
+        <div class="c">
+          <strong>Dapur Modern</strong>
+          <p>Dapur minimalis modern dengan layout efisien & material premium.</p>
+          <a class="btn" href="https://wa.me/6285124795058">Konsultasi Desain Serupa</a>
+        </div>
       </div>
-    </div>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=80" />
-      <div class="c">
-        <strong>Apartemen Premium</strong>
-        <p>Optimalisasi ruang terbatas dengan kesan luas dan mewah.</p>
-        <span class="tag">Apartemen</span>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=80" />
+        <div class="c">
+          <strong>Apartemen Premium</strong>
+          <p>Interior apartemen modern dengan optimasi ruang & estetika.</p>
+          <a class="btn" href="https://wa.me/6285124795058">Konsultasi Desain Serupa</a>
+        </div>
       </div>
+
     </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1200&q=80" />
-      <div class="c">
-        <strong>Kamar Tidur Utama</strong>
-        <p>Nuansa tenang untuk kualitas istirahat maksimal.</p>
-        <span class="tag">Bedroom</span>
-      </div>
-    </div>
-
-  </div>
-
-  <div style="text-align:center;margin-top:70px">
-    <h2 style="color:#4A000C">Ingin Desain Seperti Ini?</h2>
-    <p>Konsultasikan kebutuhan desain interior Anda langsung dengan tim kami.</p>
-    <a class="btn" href="https://wa.me/6285124795058">Konsultasi via WhatsApp</a>
   </div>
 </section>
 
 <footer>
-  © 2025 RupaRuang.Interior — Portofolio Desain Interior
+  © 2025 RupaRuang.Interior — Portfolio
 </footer>
 
 </body>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Dapur Modern | RupaRuang Interior</title>
+  <meta name="description" content="Portfolio desain dapur modern RupaRuang Interior. Fokus fungsi, estetika, dan efisiensi ruang." />
+
+  <style>
+    :root{
+      --burgundy:#780116;
+      --burgundy-dark:#4A000C;
+      --burlywood:#D7BA89;
+      --oldlace:#FFF5E6;
+      --dark-bg:#14070A;
+    }
+
+    body{
+      margin:0;
+      font-family:Inter,Arial,sans-serif;
+      background:linear-gradient(180deg,var(--dark-bg) 0%,#220B10 100%);
+      color:#E8DED2;
+    }
+
+    header{
+      position:sticky;top:0;
+      background:rgba(20,7,10,.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(215,186,137,.25);
+      z-index:10
+    }
+
+    .wrap{max-width:1100px;margin:auto;padding:20px}
+
+    a{color:inherit;text-decoration:none}
+
+    .btn{
+      background:linear-gradient(135deg,var(--burgundy),var(--burgundy-dark));
+      color:#fff;
+      padding:14px 26px;
+      border-radius:14px;
+      font-weight:600;
+      display:inline-block;
+      box-shadow:0 12px 30px rgba(120,1,22,.5)
+    }
+
+    /* HERO */
+    .hero{
+      background:url('https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    }
+    .hero .overlay{
+      background:linear-gradient(rgba(20,7,10,.75),rgba(20,7,10,.92));
+    }
+    .hero-content{padding:140px 20px}
+    h1{font-size:44px;max-width:700px;line-height:1.2}
+
+    section{padding:90px 20px}
+    h2{color:var(--burlywood);font-size:30px}
+    p{line-height:1.7;color:#F2E6D8}
+
+    /* GRID */
+    .grid{display:grid;gap:28px}
+    .grid-2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+    .grid-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+
+    .card{
+      background:rgba(255,245,230,.12);
+      border-radius:22px;
+      overflow:hidden;
+      border:1px solid rgba(215,186,137,.28);
+      box-shadow:0 24px 60px rgba(0,0,0,.65);
+      transition:.35s
+    }
+    .card:hover{transform:translateY(-6px)}
+    .card img{width:100%;height:240px;object-fit:cover}
+    .card .c{padding:22px}
+
+    footer{
+      background:var(--burgundy-dark);
+      color:var(--burlywood);
+      text-align:center;
+      padding:40px;
+      font-size:14px
+    }
+
+    /* MOBILE */
+    @media(max-width:768px){
+      h1{font-size:32px}
+      section{padding:60px 16px}
+      .hero-content{padding:110px 16px}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center">
+    <strong>RupaRuang.Interior</strong>
+    <a class="btn" href="portfolio.html">← Kembali ke Portfolio</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="overlay">
+    <div class="wrap hero-content">
+      <h1>Dapur Modern Minimalis</h1>
+      <p>Desain dapur modern dengan fokus efisiensi ruang, sirkulasi nyaman, dan estetika bersih.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECT INFO -->
+<section>
+  <div class="wrap grid grid-2">
+    <div>
+      <h2>Deskripsi Proyek</h2>
+      <p>
+        Proyek dapur modern ini dirancang untuk hunian urban dengan keterbatasan ruang.
+        Tata letak dibuat efisien, area kerja optimal, serta material yang mudah dirawat.
+      </p>
+      <p>
+        Pendekatan desain mengutamakan pencahayaan alami, warna netral, dan storage tersembunyi
+        agar dapur terasa luas dan rapi.
+      </p>
+    </div>
+    <div>
+      <h2>Detail Desain</h2>
+      <p>• Konsep: Modern Minimalis</p>
+      <p>• Area: Dapur Hunian</p>
+      <p>• Fokus: Fungsi, Kebersihan Visual</p>
+      <p>• Layanan: Konsultasi & Konsep Desain</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section style="background:linear-gradient(180deg,#220B10 0%,#14070A 100%)">
+  <div class="wrap">
+    <h2>Galeri Proyek</h2>
+    <div class="grid grid-3" style="margin-top:40px">
+      <div class="card"><img src="https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&w=1200&q=80"></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=1200&q=80"></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1565182999561-18d7dc61c393?auto=format&fit=crop&w=1200&q=80"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="wrap" style="text-align:center">
+    <h2>Konsultasikan Desain Dapur Anda</h2>
+    <p>Diskusikan kebutuhan dapur rumah atau apartemen Anda bersama RupaRuang.</p>
+    <a class="btn" href="https://wa.me/6285124795058">Konsultasi via WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  © 2025 RupaRuang.Interior — Portfolio Dapur Modern
+</footer>
+
+</body>
+</html>
